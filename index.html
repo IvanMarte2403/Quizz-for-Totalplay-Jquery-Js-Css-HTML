@@ -10,29 +10,29 @@
 </head>
 
 <body>
-  <div id="premio">
 
-    <table style=" margin: 0 auto;">
-      <tr>
-        <td>
-          <p class="elije">ELIJE TU CORTESIA:</p>
-        </td>
-        <td><img src="image/cortesia.png" class="imgSorpresa"></td>
+  <div class="container">
+    <div class="vara"></div>
+    <!-- =======contenedor Ruleta de Imagen=========== -->
+    <div class="contenedor-imagen">
+      <img src="image/imagen.png" id="ruleta">
+    </div>
 
-      </tr>
-      <tr>
-        <td>
-          <p class="contador">TURNOS: 0</p>
-        </td>
-      </tr>
-    </table>
+    <!-- ============Seccion de Dasboard================ -->
 
+    <div class="premio">
+      <p class="quizzSeleccionado">Quizz Seleccionado: </p>
+    </div>
+
+    <p class="contador">Turnos: 0</p>
+    
   </div>
 
-  <div class="vara"></div>
-  <div>
-    <img src="image/imagen.png" id="ruleta">
-  </div>
+ 
+
+  
+
+
   <div>
     <div id="sonido" style="display: none;">
       <iframe src="sonido/ruleta.mp3" id="audio"></iframe>

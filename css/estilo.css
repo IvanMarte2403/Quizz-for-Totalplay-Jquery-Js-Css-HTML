@@ -1,16 +1,45 @@
+
+:root{
+    --background-color-1: #060e63;
+    --color-1: #593cbc;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
 * {
     margin: 0px;
+    padding: 0px;
     text-align: center;
 }
 
 body {
-    background-image: url("http://127.0.0.1:5500/image/fondo.png ");
+    background-image: url('../image/portadas/portada-champions.webp');
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: vh;
+}
 .vara {
-    height: 70px;
+    height: 40px;
     width: 15px;
-    background-color: #aaa;
+    background-color: var(--color-1);
     margin: auto;
     position: relative;
     top: 10px;
@@ -20,10 +49,20 @@ body {
     z-index: 1000;
 }
 
-img {
+
+
+.contenedor-imagen{
+    width: 100%;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho del contenedor */
+    padding: 0 2rem;
+}
+
+.contenedor-imagen img {
     z-index: 100;
     transition: all 5s;
-}
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+    width: 60%;
+    }
 
 #premio {
     color: white;
@@ -33,3 +72,5 @@ img {
     padding-top: 20px;
     padding: 20px;
 }
+
+

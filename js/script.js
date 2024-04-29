@@ -20,7 +20,7 @@ function girar(){
     }).then((result)=>{
       if (result.value == true) {
         giros = 0;
-         document.querySelector('.elije').innerHTML = 'TU CORTESIA ES: ';
+         document.querySelector('.quizzSeleccionado').innerHTML = ' ';
          document.querySelector('.contador').innerHTML = 'TURNOS: ' + giros;        
       }
     })
@@ -29,7 +29,7 @@ function girar(){
 
 function premio(premios){
 
-  document.querySelector('.elije').innerHTML = 'TU CORTESIA ES: ' + premios;
+  document.querySelector('.quizzSeleccionado').innerHTML = premios;
 
 }
 
@@ -45,30 +45,22 @@ function premio(premios){
 
   setTimeout(() => {
   switch (true) {
-    case valor > 0 && valor <= 45:
-     premio("2 estrellas");
+    case valor > 0 && valor <= 72:
+     premio("Historia");
      break;
-     case valor > 45 && valor <= 90:
-     premio("5 Piezas");
+     case valor > 72 && valor <= 144:
+     premio("Geografía");
      break;
-     case valor > 90 && valor <= 135:
-     premio("2 Corazón"); 
+     case valor > 144 && valor <= 216:
+     premio("Ciencia"); 
      break; 
-     case valor > 135 && valor <= 180:
-     premio("2 Nigiri");
+     case valor > 216 && valor <= 288:
+     premio("Arte");
      break;
-     case valor > 180 && valor <= 225:
-     premio("Handroll Mini");
+     case valor > 278 && valor <= 360:
+     premio("Deportes");
      break; 
-     case valor > 225 && valor <= 270:
-     premio("NO HAY CORTESIAS ESTA VEZ");
-     break;
-     case valor > 270 && valor <= 315:
-     premio("Una Coca Cola de 2L");
-     break;
-     case valor > 315 && valor <= 360:
-     premio("2 Enjoy"); 
-     break;
+     
   }
 
  }, 5000);
