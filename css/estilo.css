@@ -2,6 +2,12 @@
 :root{
     --background-color-1: #060e63;
     --color-1: #593cbc;
+    --font-1: 'Press Start 2P';
+    --historia-color: #ff6961;
+    --deportes-color: #77dd77;
+    --arte-color: #fdfd96;
+    --ciencia-color: #84b6f4;
+    --geografia-color: #fdcae1;
 }
 
 html, body {
@@ -71,6 +77,61 @@ body {
     font-size: 25px;
     padding-top: 20px;
     padding: 20px;
+   
 }
 
 
+/* =========Estilos Por Categorias========= */
+
+.quizzSeleccionado{
+    font-family: var(--font-1);
+    width: 70%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.historia-text{
+    color: var(--historia-color) !important; 
+    font-size: 3.2rem;
+    text-shadow: -1px 0 black;
+    text-align: center;
+}
+
+.deporte-text{
+    color: var(--deportes-color) !important; 
+    font-size: 3.2rem;
+    text-shadow: -1px 0 black;
+    text-align: center;
+
+}
+
+.arte-text{
+    color: var(--arte-color) !important; 
+    font-size: 3.2em;
+    text-shadow: -1px 0 black;
+    text-align: center;
+}
+
+.ciencia-text{
+    color: var(--ciencia-color) !important; 
+    font-size: 4em;
+    text-shadow: -1px 0 black;
+    text-align: center;
+    font-size: 3.2em;
+}
+
+.geografia-text{
+    color: var(--geografia-color) !important; 
+    font-size: 4em;
+    text-shadow: -1px 0 black;
+
+}
+
+
+
+.premio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

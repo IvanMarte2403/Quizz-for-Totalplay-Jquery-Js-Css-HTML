@@ -27,11 +27,37 @@ function girar(){
   }
 
 
-function premio(premios){
-
-  document.querySelector('.quizzSeleccionado').innerHTML = premios;
-
-}
+  function premio(premios){
+    var elemento = document.querySelector('.quizzSeleccionado');
+  
+    // Elimina las clases existentes
+    elemento.className = '';
+  
+    // Agrega la clase 'quizzSeleccionado'
+    elemento.classList.add('quizzSeleccionado');
+  
+    // Agrega una clase dependiendo del premio
+    switch(premios) {
+      case 'Historia':
+        elemento.classList.add('historia-text');
+        break;
+      case 'Geografía':
+        elemento.classList.add('geografia-text');
+        break;
+     case 'Ciencia':
+        elemento.classList.add('ciencia-text');
+      break
+     case 'Deportes':
+        elemento.classList.add('deporte-text');
+      break
+     case 'Arte':
+        elemento.classList.add('arte-text');
+      break
+      // Agrega más casos según sea necesario
+    }
+  
+    elemento.innerHTML = premios;
+  }
 
 
  function calcular(rand) {
