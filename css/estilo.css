@@ -135,3 +135,15 @@ body {
     align-items: center;
     width: 100%;
 }
+
+
+.correcto_respuesta{
+    color: #fff;
+    background-color: var(--deportes-color);
+}
+
+
+.incorrecto_respuesta{
+    color: #fff;
+    background-color: #ff6961;
+}

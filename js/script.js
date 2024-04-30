@@ -2,6 +2,9 @@ const ruleta = document.querySelector('#ruleta');
 
 ruleta.addEventListener('click', girar);
 giros = 0;
+
+
+
 function girar(){
   if (giros < 3) {
     let rand = Math.random() * 7200;
@@ -9,7 +12,7 @@ function girar(){
     giros++;
     var sonido = document.querySelector('#audio');
     sonido.setAttribute('src', 'sonido/ruleta.mp3');
-    document.querySelector('.contador').innerHTML = 'TURNOS: ' + giros; 
+    // ocument.querySelectdor('.contador').innerHTML = 'TURNOS: ' + giros; 
   }else{
     Swal.fire({
       icon: 'success',
@@ -40,18 +43,24 @@ function girar(){
     switch(premios) {
       case 'Historia':
         elemento.classList.add('historia-text');
+        mostrarPreguntas('historia');
         break;
       case 'Geografía':
         elemento.classList.add('geografia-text');
+        mostrarPreguntas('geografia');
         break;
      case 'Ciencia':
         elemento.classList.add('ciencia-text');
+        mostrarPreguntas('ciencia');
+
       break
      case 'Deportes':
         elemento.classList.add('deporte-text');
+        mostrarPreguntas('deporte');
       break
      case 'Arte':
         elemento.classList.add('arte-text');
+        mostrarPreguntas('arte');
       break
       // Agrega más casos según sea necesario
     }
@@ -92,4 +101,80 @@ function girar(){
  }, 5000);
 
 }
+}
+
+function mostrarPreguntas(categoria) {
+  let preguntasSeleccionadas = [...preguntas[categoria]];
+  preguntasSeleccionadas.sort(() => Math.random() - 0.5); // Mezcla las preguntas
+  let contenedorPreguntas = document.querySelector('#contenedor-preguntas');
+  let contenedorTemporizador = document.querySelector('#temporizador-pregunta');
+  let contenedorRespuestas = document.querySelector('#contenedor-respuestas'); // Mueve esta línea aquí
+  let preguntaActual = 0;
+  let temporizador;
+
+  function mostrarPregunta() {
+    // Detiene el temporizador anterior si existe
+    if (temporizador) {
+      clearInterval(temporizador);
+    }
+
+    // Comprueba si ya se han mostrado todas las preguntas
+    if (preguntaActual >= preguntasSeleccionadas.length) {
+      contenedorPreguntas.innerHTML = 'La categoría ha finalizado.';
+      contenedorRespuestas.innerHTML = ''; // Limpia las respuestas
+      return;
+    }
+
+    // Selecciona la pregunta actual
+    let pregunta = preguntasSeleccionadas[preguntaActual];
+
+    // Muestra la pregunta
+    contenedorPreguntas.innerHTML = pregunta.pregunta;
+
+    // Muestra las respuestas
+    contenedorRespuestas.innerHTML = '';
+    pregunta.respuestas.forEach((respuesta, index) => {
+      let p = document.createElement('p');
+      p.textContent = respuesta;
+
+      // Agrega un evento click a cada respuesta
+      p.addEventListener('click', () => {
+        // Verifica si la respuesta es correcta
+        if (index === pregunta.respuestaCorrecta) {
+          p.classList.add('correcto_respuesta');
+        } else {
+          p.classList.add('incorrecto_respuesta');
+        }
+
+        // Detiene el temporizador
+        clearInterval(temporizador);
+
+        // Espera 1 segundo y luego pasa a la siguiente pregunta
+        setTimeout(mostrarPregunta, 1000);
+      });
+
+      contenedorRespuestas.appendChild(p);
+    });
+
+    // Muestra el temporizador
+    contenedorTemporizador.style.display = 'block';
+    let tiempoRestante = 15;
+    contenedorTemporizador.innerHTML = tiempoRestante;
+
+    temporizador = setInterval(() => {
+      tiempoRestante--;
+      contenedorTemporizador.innerHTML = tiempoRestante;
+
+      if (tiempoRestante <= 0) {
+        clearInterval(temporizador);
+        contenedorTemporizador.style.display = 'none';
+      }
+    }, 1000);
+
+    // Incrementa la pregunta actual
+    preguntaActual++;
+  }
+
+  // Comienza mostrando la primera pregunta
+  mostrarPregunta();
 }
