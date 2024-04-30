@@ -168,6 +168,8 @@ function mostrarPreguntas(categoria) {
       if (tiempoRestante <= 0) {
         clearInterval(temporizador);
         contenedorTemporizador.style.display = 'none';
+        // Pasa a la siguiente pregunta
+        mostrarPregunta();
       }
     }, 1000);
 
