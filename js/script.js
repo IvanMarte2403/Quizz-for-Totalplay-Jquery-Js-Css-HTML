@@ -109,8 +109,10 @@ function mostrarPreguntas(categoria) {
   let contenedorPreguntas = document.querySelector('#contenedor-preguntas');
   let contenedorTemporizador = document.querySelector('#temporizador-pregunta');
   let contenedorRespuestas = document.querySelector('#contenedor-respuestas'); // Mueve esta línea aquí
+  let puntajeTotal = document.querySelector('#puntaje-total'); // Selecciona el elemento de puntuación total
   let preguntaActual = 0;
   let temporizador;
+  let puntuacion = 0; // Añade esta línea
 
   function mostrarPregunta() {
     // Detiene el temporizador anterior si existe
@@ -142,6 +144,8 @@ function mostrarPreguntas(categoria) {
         // Verifica si la respuesta es correcta
         if (index === pregunta.respuestaCorrecta) {
           p.classList.add('correcto_respuesta');
+          puntuacion += 500; // Incrementa la puntuación
+          puntajeTotal.textContent = 'Puntuación total: ' + puntuacion; // Actualiza la puntuación total
         } else {
           p.classList.add('incorrecto_respuesta');
         }
@@ -167,7 +171,6 @@ function mostrarPreguntas(categoria) {
 
       if (tiempoRestante <= 0) {
         clearInterval(temporizador);
-        contenedorTemporizador.style.display = 'none';
         // Pasa a la siguiente pregunta
         mostrarPregunta();
       }

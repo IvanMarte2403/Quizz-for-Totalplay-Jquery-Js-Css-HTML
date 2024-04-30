@@ -120,7 +120,6 @@ body {
     font-size: 2.2rem;
     text-shadow: -1px 0 black;
     text-align: center;
-    font-size: 3.2em;
 }
 
 .geografia-text{
@@ -153,6 +152,14 @@ body {
 }
 
 
+
+#puntaje-total{
+    color: #000;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    font-family: var(--font-4);
+}
 /* =======Contenedores Preguntas===== */
 
 
