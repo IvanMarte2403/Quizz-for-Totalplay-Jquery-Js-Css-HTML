@@ -11,6 +11,9 @@
     --arte-color: #fdfd96;
     --ciencia-color: #84b6f4;
     --geografia-color: #fdcae1;
+     --font-secondary: 'Rubik';
+    --font-third: 'Roboto';
+
 }
 
 html, body {
@@ -26,7 +29,6 @@ html, body {
 }
 
 body {
-    background-image: url('../image/portadas/portada-champions.webp');
     background-color: #000;
     display: flex;
     flex-direction: column;
@@ -35,7 +37,7 @@ body {
 }
 
 .container{
-    width: 40%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,7 +72,7 @@ body {
     z-index: 100;
     transition: all 5s;
     object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
-    width: 60%;
+    width: 30%;
     }
 
 #premio {
@@ -87,7 +89,7 @@ body {
 /* =========Estilos Por Categorias========= */
 
 .quizzSeleccionado{
-    font-family: var(--font-1);
+    font-family: var(--font-third);
     width: 70%;
     text-align: center;
     margin-top: 2rem;
@@ -165,7 +167,7 @@ body {
 
 #contenedor-preguntas {
     font-size: 2rem;
-    width: 100%;
+    width: 80%;
     margin-top: 2rem;
     padding: 1rem;
     margin-bottom: 2rem;
@@ -175,7 +177,7 @@ body {
 
 #contenedor-respuestas p{
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 1rem 8rem;
     margin-bottom: 2rem;
     cursor: pointer;
     font-family: var(--font-4);

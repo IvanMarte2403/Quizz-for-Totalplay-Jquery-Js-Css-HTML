@@ -103,6 +103,8 @@ function girar(){
 }
 }
 
+let puntuacion = 0; 
+
 function mostrarPreguntas(categoria) {
   let preguntasSeleccionadas = [...preguntas[categoria]];
   preguntasSeleccionadas.sort(() => Math.random() - 0.5); // Mezcla las preguntas
@@ -112,7 +114,6 @@ function mostrarPreguntas(categoria) {
   let puntajeTotal = document.querySelector('#puntaje-total'); // Selecciona el elemento de puntuación total
   let preguntaActual = 0;
   let temporizador;
-  let puntuacion = 0; // Añade esta línea
 
   function mostrarPregunta() {
     // Detiene el temporizador anterior si existe
