@@ -8,11 +8,7 @@
 :root{
     --background-color-1: #060e63;
     --color-1: #593cbc;
-    --color-primary: #fff;
-    --font-1: 'Press Start 2P';
-    --font-2: 'Jersey 15';
-    --font-3: 'Anton';
-    --font-4: 'Roboto Condensed';
+    --color-primary: #000;
     --historia-color: #ff6961;
     --deportes-color: #77dd77;
     --arte-color: #fdfd96;
@@ -20,7 +16,7 @@
     --geografia-color: #fdcae1;
      --font-secondary: 'Rubik';
     --font-third: 'Roboto';
-    --font-fourth: 'Champions Bold';
+    --font-fourth: 'Rubik';
 }
 
 
@@ -41,43 +37,57 @@ html, body {
 }
 
 body {
-    background-color: #000;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #fff;
     width: 100%;
+    height: 100%;
+    background-image: url('../image/portadas/portada-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
-.container{
+.container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
-    background-image: url('../image/portadas/champions-border.png');
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.5); /* Fondo semitransparente para el efecto de cristal */
+    backdrop-filter: blur(10px); /* Efecto de cristal */
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* Gradiente de desvanecimiento */
+    z-index: -1;
 }
 .vara {
     height: 40px;
     width: 15px;
     background-color: var(--color-1);
-    margin: auto;
     position: relative;
     top: 10px;
     border-radius: 0px 0px 8px 8px;
     border: 1px solid var(--color-primary);
     border-top: 5px solid var(--color-primary);
     z-index: 1000;
+
 }
 
 
 
 .contenedor-imagen{
-    width: 100%;
+    width: 70%;
     box-sizing: border-box; /* Incluye el padding y el borde en el ancho del contenedor */
     padding: 0 2rem;
 }
@@ -90,7 +100,7 @@ body {
     }
 
 #premio {
-    color: white;
+    color: var(--color-primary);
     position: absolute;
     font-weight: bold;
     font-size: 25px;
@@ -107,6 +117,8 @@ body {
     width: 70%;
     text-align: center;
     margin-top: 2rem;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 .historia-text{
@@ -205,24 +217,11 @@ box-shadow: rgba(0, 128, 0, 0.2) 0 15px 30px -5px !important;
     border-radius: 2rem;
     }
 
-/* #contenedor-respuestas p{
-    font-size: 1.5rem;
-    padding: 1rem 8rem;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    font-family: var(--font-4);
-    box-shadow: rgba(114, 114, 150, 0.25) 0px 50px 100px -20px, rgba(139, 130, 130, 0.3) 0px 30px 60px rgba(105, 105, 105, 0.35) 0px -2px 6px 0px inset;
-    font-family: var(--font-fourth);
-    color: #000 !important;
-    background-color: #fff;
-    border-radius: 2rem;
-
-} */
 
 /* CSS */
 #contenedor-respuestas p {
     align-items: center;
-    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    background-image: linear-gradient(144deg,#73B1BF, #D9933D 50%,#732D67);
     border: 0;
     border-radius: 8px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -261,7 +260,8 @@ box-shadow: rgba(0, 128, 0, 0.2) 0 15px 30px -5px !important;
 #temporizador-pregunta{
     font-size: 1.5rem;
     margin-top: 2rem;
-    font-family: var(--font-4);
+    font-family: var(--font-secondary);
+    color: var(--color-primary);
 }
 
 
@@ -279,7 +279,7 @@ box-shadow: rgba(0, 128, 0, 0.2) 0 15px 30px -5px !important;
 
 @media screen and (max-width: 768px){
     .container{
-        width: 76%;
+        width: 100%;
     }
 
     .contenedor-imagen img {
@@ -315,6 +315,6 @@ box-shadow: rgba(0, 128, 0, 0.2) 0 15px 30px -5px !important;
     }
 
     #contenedor-preguntas{
-        width: 100%;
+        width: 78%;
     }
 }

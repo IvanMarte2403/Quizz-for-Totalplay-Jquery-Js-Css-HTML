@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +27,7 @@
     <div class="vara"></div>
     <!-- =======contenedor Ruleta de Imagen=========== -->
     <div class="contenedor-imagen">
-      <img src="image/imagen.png" id="ruleta">
+      <img src="image/ruletas/ruleta-tpga.png" id="ruleta">
     </div>
 
     <!-- ============Seccion de Dasboard================ -->
@@ -59,7 +61,6 @@
   <div>
     <div id="sonido" style="display: none;">
       <iframe src="sonido/ruleta.mp3" id="audio"></iframe>
-
     </div>
   </div>
 
@@ -67,6 +68,7 @@
   <script src="js/preguntas.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="js/user_status.js"></script>
   <script src="js/script.js"></script>
 </body>
 
