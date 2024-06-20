@@ -2,24 +2,22 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   //Instrucciones Juego
 
-  //¿El Jugador puede jugar infinitas veces?
-  question1 = 1;  
+  //Can the player play multiple times?
+    question1 = 1;  // or 0 if the player can only play once
 
-  
-  
-//Change the spins available'
-let girosDisponibles = 3; 
+  //Can the player play multiple times?
+    question2 = 1;  // or 0 if the playerc haves infinity spins
+
+  //If the question 2 = 1 = Change the spins available'
+  let girosDisponibles = 3; 
 
   
   // ============================Declaraciones Globales============================
     
 
   const ruleta = document.querySelector('#ruleta');
-
-
   let giros = 0;
   var categoriasJugadas = {};
-
   bloquearGiro = false;
   // ==========q========================Metodos======================
 // Controlador del evento de clic
@@ -38,25 +36,25 @@ ruleta.addEventListener('click', function() {
 
     // =======Verificar la cantidad de giros=======
 
-    if(giros >= 3){
-      
-
-    document.querySelector('#contenedor-preguntas').innerText = 'Has terminado el juego';
-    Swal.fire({
-    title: 'Has terminado el juego',
-    text: 'Gracias por jugar!',
-    icon: 'success',
-    confirmButtonText: 'Cool'
-  })
-      document.querySelector('.contenedor-imagen').style.display = 'none';
-      document.querySelector('#contador-giros').style.display = 'none';
-      document.querySelector('.vara').style.display = 'none';
-      document.querySelector('.quizzSeleccionado').style.display = 'none';
-      document.querySelector('.premio').style.display = 'none';
-      actualizarEstadoJuego(1);
-      return; 
+    if(question2 == 1){
+        if(giros >= 3){
+          
+        document.querySelector('#contenedor-preguntas').innerText = 'Has terminado el juego';
+        Swal.fire({
+        title: 'Has terminado el juego',
+        text: 'Gracias por jugar!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
+          document.querySelector('.contenedor-imagen').style.display = 'none';
+          document.querySelector('#contador-giros').style.display = 'none';
+          document.querySelector('.vara').style.display = 'none';
+          document.querySelector('.quizzSeleccionado').style.display = 'none';
+          document.querySelector('.premio').style.display = 'none';
+          actualizarEstadoJuego(1);
+          return; 
+        }
     }
-
 
     // ===========Contador de Giros Disponibles============
 
