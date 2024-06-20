@@ -1,6 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
+  //Instrucciones Juego
 
+  //¿El Jugador puede jugar infinitas veces?
+  question1 = 1;  
+
+  
+  
+//Change the spins available'
+let girosDisponibles = 3; 
+
+  
   // ============================Declaraciones Globales============================
     
 
@@ -8,7 +18,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
   let giros = 0;
-  let girosDisponibles = 3; 
   var categoriasJugadas = {};
 
   bloquearGiro = false;
@@ -30,7 +39,6 @@ ruleta.addEventListener('click', function() {
     // =======Verificar la cantidad de giros=======
 
     if(giros >= 3){
-      //Verifica si el jugador ya ha jugado antes
       
 
     document.querySelector('#contenedor-preguntas').innerText = 'Has terminado el juego';

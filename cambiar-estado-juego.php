@@ -5,7 +5,7 @@ session_start();
 ini_set('display_errors', 0);
 
 // Incluir la conexión a la base de datos
-include 'db_conexion.php';
+include '../../db_conexion.php';
 
 // Recibe el estado del juego desde la solicitud AJAX
 $estadoJuego = $_POST['estadoJuego'];
