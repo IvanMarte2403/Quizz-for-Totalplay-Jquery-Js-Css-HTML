@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   //If the question 2 = 1 = Change the spins available'
   let girosDisponibles = 3; 
 
-  
+
+
+
   // ============================Declaraciones Globales============================
     
 
@@ -83,32 +85,32 @@ ruleta.addEventListener('click', function() {
          // Agrega la clase 'quizzSeleccionado'
         elemento.classList.add('quizzSeleccionado');
     
-        // Agrega una clase dependiendo del premio
+        // Read the pull of questions
           switch(premios) {
-              case 'JUGADORES':
+              case categoryOne:
                 elemento.classList.add('historia-text');
-                mostrarPreguntas('historia');
+                mostrarPreguntas(categoryOne);
                break;
 
-              case 'ESTADIOS':
+              case categoryTwo:
                 elemento.classList.add('geografia-text');
-                mostrarPreguntas('geografia');
+                mostrarPreguntas(categoryTwo);
                break;
 
-              case 'PARTIDOS':
+              case categoryThree:
                 elemento.classList.add('ciencia-text');
-                mostrarPreguntas('ciencia');
+                mostrarPreguntas(categoryThree);
 
              break
 
-            case 'PERSONAJES':
-              elemento.classList.add('deporte-text');
-              mostrarPreguntas('deporte');
+            case categoryFour:
+              elemento.classList.add(categoryFour);
+              mostrarPreguntas(categoryFour);
             break
 
-            case 'HISTORIA':
-              elemento.classList.add('arte-text');
-              mostrarPreguntas('arte');
+            case categoryFive:
+              elemento.classList.add(categoryFive);
+              mostrarPreguntas(categoryFive);
              break
 
         // Agrega más casos según sea necesario
@@ -132,19 +134,19 @@ ruleta.addEventListener('click', function() {
     setTimeout(() => {
     switch (true) {
       case valor > 0 && valor <= 72:
-      premio("JUGADORES");
+      premio(categoryOne);
       break;
       case valor > 72 && valor <= 144:
-      premio("ESTADIOS");
+      premio(categoryTwo);
       break;
       case valor > 144 && valor <= 216:
-      premio("PARTIDOS"); 
+      premio(categoryThree); 
       break; 
       case valor > 216 && valor <= 288:
-      premio("PERSONAJES");
+      premio(categoryFour);
       break;
       case valor > 278 && valor <= 360:
-      premio("HISTORIA");
+      premio(categoryFive);
       break; 
       
     }
