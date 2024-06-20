@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quizz Totalplay</title>
   <link rel="stylesheet" href="css/estilo.css">
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="data:">
   <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -20,6 +20,8 @@
 <body>
 
   <div class="container">
+
+  
     <div class="vara"></div>
     <!-- =======contenedor Ruleta de Imagen=========== -->
     <div class="contenedor-imagen">
@@ -35,11 +37,15 @@
       <p id="temporizador-pregunta" style="display: none;"></p>
     </div>
 
-    <div id="contenedor-preguntas">
+    <div id="contenedor-preguntas" style="display: none;">
 
     </div>
     <div id="contenedor-respuestas">
 
+    </div>
+
+    <div id="contenedor-boton" style="display: none">
+        <a id="boton-guardar"  href="#">Guardar Puntaje</a>
     </div>
     <!-- <p class="contador">Turnos: 0</p> -->
     
@@ -57,7 +63,7 @@
     </div>
   </div>
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/preguntas.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
