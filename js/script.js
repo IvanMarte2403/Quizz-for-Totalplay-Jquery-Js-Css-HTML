@@ -29,6 +29,7 @@ ruleta.addEventListener('click', function() {
   }
 });
 
+document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + girosDisponibles;
 
 
   // ==================================================================================

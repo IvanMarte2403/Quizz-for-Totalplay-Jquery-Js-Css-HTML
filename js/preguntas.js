@@ -51,7 +51,7 @@
             respuestaCorrecta: 1 
         },
         { 
-            pregunta: 'Desde la psicología, ¿qué efecto tiene la figura paterna en la seguridad emocional de los niños?', 
+            pregunta: 'Desde la psicología, ¿Qué efecto tiene la figura paterna en la seguridad emocional de los niños?', 
             respuestas: ['Incrementa la confianza', 'Disminuye la ansiedad', 'Ambas son correctas'], 
             respuestaCorrecta: 2 
         },

@@ -34,7 +34,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <div class="container">
 
     <div id="contador-giros">
-      
     </div>
   
     <div class="vara"></div>
@@ -49,7 +48,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <div class="premio">
       <p id="puntaje-partida"></p>
       <p id="puntaje-total"></p>
-      <p class="quizzSeleccionado">Selecciona el Centro para Comenzar </p>
+      <p class="quizzSeleccionado">Selecciona el centro para comenzar  </p>
       <p id="temporizador-pregunta" style="display: none;"></p>
     </div>
 

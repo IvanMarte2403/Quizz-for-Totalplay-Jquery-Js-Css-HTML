@@ -14,7 +14,7 @@
     --arte-color: #fdfd96;
     --ciencia-color: #84b6f4;
     --geografia-color: #fdcae1;
-     --font-secondary: 'Rubik';
+     --font-secondary:  'Rubik';
     --font-third: 'Roboto';
     --font-fourth: 'Rubik';
 }
@@ -200,7 +200,7 @@ box-shadow: rgba(0, 128, 0, 0.2) 0 15px 30px -5px !important;
     font-weight: 600;
     font-size: 1.2rem;
     margin-top: 2rem;
-    font-family: var(--font-4);
+    font-family: var(--font-secondary);
 }
 
 #contador-giros{
