@@ -32,7 +32,8 @@ ruleta.addEventListener('click', function() {
 });
 
 document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + girosDisponibles;
-
+var contenedorBoton = document.getElementById('contenedor-boton');
+var enlace =  document.getElementById('boton-guardar');
   // ==================================================================================
 
   //Función Padre Girar 
@@ -44,12 +45,18 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
         if(giros >= 3){
           
      
-          document.querySelector('.contenedor-imagen').style.display = 'none';
           document.querySelector('#contador-giros').style.display = 'none';
           document.querySelector('.vara').style.display = 'none';
           document.querySelector('.quizzSeleccionado').style.display = 'none';
           document.querySelector('.premio').style.display = 'none';
+          
+          document.querySelector('#contenedor-preguntas').innerHTML = 'Juego Finalizado';
           // actualizarEstadoJuego(1);
+
+          
+        // Muestra el contenedor del botón
+          contenedorBoton.style.display = 'block';
+
           return; 
         }
     }
@@ -209,53 +216,53 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
     contenedorRespuestas.innerHTML = ''; // Limpia las respuestas
 
     // Encuentra el contenedor del botón y el enlace dentro del contenedor
-    var contenedorBoton = document.getElementById('contenedor-boton');
-    var enlace =  document.getElementById('boton-guardar');
-
-    // Muestra el contenedor del botón
-    contenedorBoton.style.display = 'block';
-
-    // Agrega un evento de clic al enlace
-    enlace.addEventListener('click', function(event) {
-      // Previene la acción por defecto del enlace
-      event.preventDefault();
-
-      // Imprime "Guardar & Salir" en la consola
-      window.puntuacionGlobal = puntuacion; // Guarda la puntuación global
-      console.log(window.puntuacionGlobal)
-
-
-      // Crear un objeto FormData para enviar los datos
-      var datos = new FormData();
-      datos.append('puntuacionGlobal', window.puntuacionGlobal);
-
-    // Crear la solicitud AJAX
-      var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'guardarPuntuacion.php', true);
-
-    // Establecer la función de callback para la respuesta
-    xhr.onload = function() {
-      if (this.status == 200) {
-        console.log(this.responseText);
-      } else {
-        console.error('Error al guardar la puntuación');
-      }
-    };
-
-// Enviar la solicitud
-xhr.send(datos);
-
-      puntajeTotal.textContent = 'Puntuación total: ' + puntuacion; // Actualiza la puntuación total
-
-      // Muestra un mensaje de éxito
-      enlace.textContent = 'Puntuación guardada';
-      enlace.style.color = 'green';
-
   
 
-    });
+ // Agrega un evento de clic al enlace
+enlace.addEventListener('click', function(event) {
+  // Previene la acción por defecto del enlace
+  event.preventDefault();
 
-    return;
+  // Imprime "Guardar & Salir" en la consola
+  window.puntuacionGlobal = puntuacion; // Guarda la puntuación global
+  console.log(window.puntuacionGlobal)
+
+  // Crear un objeto FormData para enviar los datos
+  var datos = new FormData();
+  datos.append('puntuacionGlobal', window.puntuacionGlobal);
+
+  // Crear la solicitud AJAX
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'guardarPuntuacion.php', true);
+
+  // Establecer la función de callback para la respuesta
+  xhr.onload = function() {
+    if (this.status == 200) {
+      console.log(this.responseText);
+      // Espera 2 segundos después de enviar la solicitud
+      setTimeout(function() {
+        // Redirige a dashboard.php
+        window.location.href = '../../dashboard.php';
+      }, 2000); // 2000 milisegundos = 2 segundos
+    } else {
+      console.error('Error al guardar la puntuación');
+    }
+  };
+
+  // Enviar la solicitud
+  xhr.send(datos);
+
+  puntajeTotal.textContent = 'Puntuación total: ' + puntuacion; // Actualiza la puntuación total
+
+  // Muestra un mensaje de éxito
+  enlace.textContent = 'Puntuación guardada';
+  enlace.style.color = 'green';
+});
+
+return;
+
+
+    
   }
 
       // Selecciona la pregunta actual

@@ -56,6 +56,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <div id="contenedor-preguntas" style="display: none;">
 
     </div>
+  
     <div id="contenedor-respuestas">
 
     </div>
@@ -67,7 +68,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </div>
 
     <div id="contenedor-boton" style="display: none">
-        <a id="boton-guardar"  href="#">Guardar Puntaje</a>
+        <a id="boton-guardar"  href="#">Guardar & Salir </a>
     </div>
     <!-- <p class="contador">Turnos: 0</p> -->
     
