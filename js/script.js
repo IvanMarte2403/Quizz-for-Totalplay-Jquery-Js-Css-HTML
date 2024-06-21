@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     question2 = 1;  // or 0 if the playerc haves infinity spins
 
   //If the question 2 = 1 = Change the spins available'
-  let girosDisponibles = 3; 
+     let girosDisponibles = 3; 
 
+  //Modify the time they have per question
+     var tiempoRestante = 15;
 
 
 
@@ -30,7 +32,6 @@ ruleta.addEventListener('click', function() {
 });
 
 document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + girosDisponibles;
-
 
   // ==================================================================================
 
@@ -89,19 +90,15 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
         // Read the pull of questions
           switch(premios) {
               case categoryOne:
-                elemento.classList.add('historia-text');
                 mostrarPreguntas(categoryOne);
                break;
 
               case categoryTwo:
-                elemento.classList.add('geografia-text');
                 mostrarPreguntas(categoryTwo);
                break;
 
               case categoryThree:
-                elemento.classList.add('ciencia-text');
                 mostrarPreguntas(categoryThree);
-
              break
 
             case categoryFour:
@@ -114,7 +111,6 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
               mostrarPreguntas(categoryFive);
              break
 
-        // Agrega más casos según sea necesario
       }
     
       elemento.innerHTML = premios;
@@ -159,37 +155,6 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
 
   var estadoJuego = 1;
   //Declaración Global
-
-
-  function actualizarEstadoJuego(estadoJuego) {
-    fetch('../cambiar-estado-juego.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: 'estadoJuego=' + encodeURIComponent(estadoJuego),
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.success) {
-        console.log('Estado del juego actualizado con éxito');
-      } else {
-        console.log('Error al actualizar el estado del juego: ' + data.error);
-      }
-    })
-    .catch((error) => {
-      if (error instanceof SyntaxError) {
-        console.error('La respuesta no es un JSON válido:', error);
-      } else {
-        console.error('Error:', error);
-      }
-    });
-  } //Terminación de función actualizarEstadoJuego
 
 
   // ======================Declaración Partidas Jugadas=================
@@ -333,7 +298,7 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
 
       // Muestra el temporizador
       contenedorTemporizador.style.display = 'block';
-      let tiempoRestante = 15;
+       tiempoRestante = 15;
       contenedorTemporizador.innerHTML = tiempoRestante;
 
       temporizador = setInterval(() => {
