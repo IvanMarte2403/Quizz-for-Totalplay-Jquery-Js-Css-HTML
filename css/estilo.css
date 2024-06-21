@@ -56,7 +56,6 @@ body {
     padding: 2rem;
     border-radius: 10px;
     position: relative;
-    overflow: hidden;
     background: rgba(255, 255, 255, 0.5); /* Fondo semitransparente para el efecto de cristal */
     backdrop-filter: blur(10px); /* Efecto de cristal */
 }

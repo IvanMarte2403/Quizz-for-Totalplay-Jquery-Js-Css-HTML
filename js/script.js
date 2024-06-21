@@ -43,19 +43,13 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
     if(question2 == 1){
         if(giros >= 3){
           
-        document.querySelector('#contenedor-preguntas').innerText = 'Has terminado el juego';
-        Swal.fire({
-        title: 'Has terminado el juego',
-        text: 'Gracias por jugar!',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-      })
+     
           document.querySelector('.contenedor-imagen').style.display = 'none';
           document.querySelector('#contador-giros').style.display = 'none';
           document.querySelector('.vara').style.display = 'none';
           document.querySelector('.quizzSeleccionado').style.display = 'none';
           document.querySelector('.premio').style.display = 'none';
-          actualizarEstadoJuego(1);
+          // actualizarEstadoJuego(1);
           return; 
         }
     }
@@ -228,26 +222,29 @@ document.querySelector('#contador-giros').innerText = 'Giros disponibles: ' + gi
 
       // Imprime "Guardar & Salir" en la consola
       window.puntuacionGlobal = puntuacion; // Guarda la puntuación global
-    
-    // Enviar la puntuación global a guardar-puntaje.php
-    fetch('../guardar-puntaje.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: 'puntaje=' + encodeURIComponent(window.puntuacionGlobal),
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        console.log('Puntuación guardada con éxito');
+      console.log(window.puntuacionGlobal)
+
+
+      // Crear un objeto FormData para enviar los datos
+      var datos = new FormData();
+      datos.append('puntuacionGlobal', window.puntuacionGlobal);
+
+    // Crear la solicitud AJAX
+      var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'guardarPuntuacion.php', true);
+
+    // Establecer la función de callback para la respuesta
+    xhr.onload = function() {
+      if (this.status == 200) {
+        console.log(this.responseText);
       } else {
-        console.log('Error al guardar la puntuación: ' + data.error);
+        console.error('Error al guardar la puntuación');
       }
-    });
+    };
 
+// Enviar la solicitud
+xhr.send(datos);
 
-      puntuacion = 0; // Reinicia la puntuación
       puntajeTotal.textContent = 'Puntuación total: ' + puntuacion; // Actualiza la puntuación total
 
       // Muestra un mensaje de éxito
